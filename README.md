@@ -1,296 +1,139 @@
-# <a name="jalpc"></a>Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/Jack614/jalpc_jekyll_theme)
+# [Bootstrap](http://getbootstrap.com)
 
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
+[![Slack](https://bootstrap-slack.herokuapp.com/badge.svg)](https://bootstrap-slack.herokuapp.com)
+![Bower version](https://img.shields.io/bower/v/bootstrap.svg)
+[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
+[![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap)
+[![devDependency Status](https://img.shields.io/david/dev/twbs/bootstrap.svg)](https://david-dm.org/twbs/bootstrap#info=devDependencies)
+[![NuGet](https://img.shields.io/nuget/v/bootstrap.svg)](https://www.nuget.org/packages/Bootstrap)
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
-<http://www.jack003.com>
+Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thornton](https://twitter.com/fat), and maintained by the [core team](https://github.com/orgs/twbs/people) with the massive support and involvement of the community.
 
-![Blog](blog.gif)
+To get started, check out <http://getbootstrap.com>!
 
-* [Ad](#ad)
-* [Getting Started](#getting-started)
-    * [Fork, then clone](#fork-then-clone)
-    * [Modify _config.yml](#modify-configyml)
-    * [Index page](#index-page)
-    * [Modify _data/\*.yml](#mofify-datayml)
-    * [Jekyll Serve](#jekyll-serve)
-    * [Using Github Pages](#using-github-pages)
-    * [Pagination](#pagination)
-    * [Page counter](#page-counter)
-    * [Multilingual Page](#multilingual-page)
-    * [Web analytics](#web-analytics)
-    * [Comment](#comment)
-    * [Share](#share)
-    * [Search engines](#search-engines)
-    * [CNAME](#cname)
-    * [Put in a Jalpc Plug](#put-in-a-jalpc-plug)
-    * [Enjoy](#enjoy)
-* [Upgrading Jalpc](#upgrading-jalpc)
-    * [Ensure there's an upstream remote](#ensure-theres-an-upstream-remote)
-    * [Pull in the latest changes](#pull-in-the-latest-changes)
-* [Thanks to the following](#thanks-to-the-following)
+
+## Table of contents
+
+* [Quick start](#quick-start)
+* [Bugs and feature requests](#bugs-and-feature-requests)
+* [Documentation](#documentation)
 * [Contributing](#contributing)
+* [Community](#community)
+* [Versioning](#versioning)
+* [Creators](#creators)
+* [Copyright and license](#copyright-and-license)
 
-This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluidly responsive, and delightfully lightweight.
 
-It's pretty minimal, but leverages large type and drastic contrast to make a statement, on all devices.
+## Quick start
 
-The landing page of the blog is multilingual page.
+Several quick start options are available:
 
-It is my pleasure to contact me, you can give me your website or some advice about my website. Let's build a wonderful Jekyll theme together!
+* [Download the latest release](https://github.com/twbs/bootstrap/archive/v3.3.6.zip).
+* Clone the repo: `git clone https://github.com/twbs/bootstrap.git`.
+* Install with [Bower](http://bower.io): `bower install bootstrap`.
+* Install with [npm](https://www.npmjs.com): `npm install bootstrap`.
+* Install with [Meteor](https://www.meteor.com): `meteor add twbs:bootstrap`.
+* Install with [Composer](https://getcomposer.org): `composer require twbs/bootstrap`.
 
-## <a name="ad"></a>Ad
+Read the [Getting started page](http://getbootstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
 
-[Jalpc-A](https://github.com/Jack614/Jalpc-A): another Jekyll theme written by [AngularJS](https://angularjs.org/).
+### What's included
 
-##  <a name="getting-started"></a>Getting Started
-
-If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by Smashing Magazine.
-
-### <a name="fork-then-clone"></a> Fork, then clone
-
-**Fork** the repo, and then **clone** it so you've got the code locally.
-
-```
-$ git clone https://github.com/<your githubname>/jalpc_jekyll_theme.git
-$ cd jalpc_jekyll_theme
-$ gem install jekyll # If you don't have jekyll installed
-$ rm -rf _site && jekyll server
-```
-
-### <a name="modify-configyml"></a>Modify `_config.yml`
-
-The _config.yml located in the root of the jalpc_jekyll_theme directory contains all of the configuration details for the Jekyll site. The defaults are:
-
-``` yml
-# Website settings
-title: "Jalpc"
-description: "Jack's blog,use Jekyll and github pages."
-keywords: "Jack,Jalpc,blog,Jekyll,github,gh-pages"
-
-baseurl: "/"
-url: "http://www.jack003.com"
-# url: "http://127.0.0.1:4000"
-
-# author
-author:
-  name: 'Jack'
-  first_name: 'Jia'
-  last_name: 'Kun'
-  email: 'me@jack003.com'
-  facebook_username: 'jiakunnj'
-  github_username: 'Jack614'
-  head_img: 'static/img/landing/Jack.jpg'
-...
-```
-
-### <a name="#index-page"></a>Index page
-
-The index page is seprated into several sections and they are located in `_includes/sections`,the configuration is in `_config.yml` and section's detail configuration is in `_data/*.yml`.
-
-#### <a name="mofify-datayml"></a>Modify `_data/*.yml`
-
-These files are used to dynamically render pages, so you almost don't have to edit *html files* to change your own theme, besides you can use `jekyll serve --watch` to reload changes.
-
-The following is mapping between *yml file* to *sections*.
-
-* blog.yml  ==>  _includes/sections/blog.html
-* careers.yml  ==>  _includes/sections/career.html
-* links.yml  ==>  _includes/sections/links.html
-* projects.yml  ==>  _includes/sections/projects.html
-* skills.yml  ==>  _includes/sections/skills.html
-
-### <a name="jekyll-serve"></a>Jekyll Serve
-
-Then, start the Jekyll Server. I always like to give the --watch option so it updates the generated HTML when I make changes.
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```
-$ jekyll serve --watch
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   ├── bootstrap.min.css.map
+│   ├── bootstrap-theme.css
+│   ├── bootstrap-theme.css.map
+│   ├── bootstrap-theme.min.css
+│   └── bootstrap-theme.min.css.map
+├── js/
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    ├── glyphicons-halflings-regular.woff
+    └── glyphicons-halflings-regular.woff2
 ```
 
-Now you can navigate to localhost:4000 in your browser to see the site.
+We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). CSS [source maps](https://developer.chrome.com/devtools/docs/css-preprocessors) (`bootstrap.*.map`) are available for use with certain browsers' developer tools. Fonts from Glyphicons are included, as is the optional Bootstrap theme.
 
-### <a name="using-github-pages"></a>Using Github Pages
 
-You can host your Jekyll site for free with Github Pages. [Click here](https://pages.github.com) for more information.
+## Bugs and feature requests
 
-A configuration tweak if you're using a gh-pages sub-folder
+Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/twbs/bootstrap/issues/new).
 
-In addition to your github-username.github.io repo that maps to the root url, you can serve up sites by using a gh-pages branch for other repos so they're available at github-username.github.io/repo-name.
 
-This will require you to modify the _config.yml like so:
+## Documentation
 
-``` yml
-# Welcome to Jekyll!
+Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://getbootstrap.com>. The docs may also be run locally.
 
-# Site settings
-title: Website Name
+### Running documentation locally
 
-baseurl: "/"
-url: "http://github-username.github.io"
-# url: "http://127.0.0.1:4000"
+1. If necessary, [install Jekyll](http://jekyllrb.com/docs/installation) (requires v3.0.x).
+   **Note for Windows users:** Read [this unofficial guide](http://jekyll-windows.juthilo.com/) to get Jekyll up and running without problems.
+2. Install the Ruby-based syntax highlighter, [Rouge](https://github.com/jneen/rouge), with `gem install rouge`.
+3. From the root `/bootstrap` directory, run `jekyll serve` in the command line.
+4. Open `http://localhost:9001` in your browser, and voilà.
 
-# author
-author:
-  name: nickname
-  first_name: firstname
-  last_name: lastname
-  email: your_email@example.com
-  facebook_username: facebook_example
-  github_username: 'github_example'
-  head_img: 'path/of/head/img'
+Learn more about using Jekyll by reading its [documentation](http://jekyllrb.com/docs/home/).
 
-# blog img path
-img_path: '/path/of/blog/img/'
-```
+### Documentation for previous releases
 
-If you start server on localhost, you can turn on `# url: "http://127.0.0.1:4000"`.
+Documentation for v2.3.2 has been made available for the time being at <http://getbootstrap.com/2.3.2/> while folks transition to Bootstrap 3.
 
-### <a name="pagination"></a>Pagination
+[Previous releases](https://github.com/twbs/bootstrap/releases) and their documentation are also available for download.
 
-The pagination in jekyll is not very perfect,so I use front-end web method,there is a [blog](http://www.jack003.com/html/2016/06/04/jekyll-pagination-with-jpages.html) about the method and you can refer to [jPages](http://luis-almeida.github.io/jPages).
 
-### <a name="page-counter"></a>Page counter
+## Contributing
 
-Many third party page counter platforms are too slow,so I count my website page view myself,the javascript file is [static/js/count.min.js](https://github.com/JiaKunUp/jalpc_jekyll_theme/blob/gh-pages/static/js/count.min.js) ([static/js/count.js](https://github.com/JiaKunUp/jalpc_jekyll_theme/blob/gh-pages/static/js/count.js)),the backend API is written with flask on [Vultr VPS](https://www.vultr.com/), detail code please see [jalpc-flask](https://github.com/JiaKunUp/jalpc-flask).
+Please read through our [contributing guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-### <a name="multilingual-page"></a>Multilingual Page
+Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/twbs/bootstrap/tree/master/js/tests). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
 
-The landing page has multilingual support with the [i18next](http://i18next.com) plugin.
+Editor preferences are available in the [editor config](https://github.com/twbs/bootstrap/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
-Languages are configured in the `config.yml` file.
 
-#### Step 1
+## Community
 
-Add a new language entry
+Get updates on Bootstrap's development and chat with the project maintainers and community members.
 
-```yml
-languages:
-  - locale: 'en'
-    flag: 'static/img/flags/United-States.png'
-  - locale: '<language_locale>'
-    flag: '<language_flag_url>'
-```
+* Follow [@getbootstrap on Twitter](https://twitter.com/getbootstrap).
+* Read and subscribe to [The Official Bootstrap Blog](http://blog.getbootstrap.com).
+* Join [the official Slack room](https://bootstrap-slack.herokuapp.com).
+* Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##bootstrap` channel.
+* Implementation help may be found at Stack Overflow (tagged [`twitter-bootstrap-3`](https://stackoverflow.com/questions/tagged/twitter-bootstrap-3)).
+* Developers should use the keyword `bootstrap` on packages which modify or add to the functionality of Bootstrap when distributing through [npm](https://www.npmjs.com/browse/keyword/bootstrap) or similar delivery mechanisms for maximum discoverability.
 
-#### Step 2
 
-Add a new json (`static/locales/<language_locale>.json`) file that contains the translations for the new locale.
+## Versioning
 
-Example `en.json`
+For transparency into our release cycle and in striving to maintain backward compatibility, Bootstrap is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
-```json
-{
-  "website":{
-    "title": "Jalpc"
-  },
-  "nav":{
-    "home": "Home",
-    "about_me": "About",
-    "skills": "Skills",
-    "career": "Career",
-    "blog": "Blog",
-    "contact": "Contact"
-  }
-}
-```
+See [the Releases section of our GitHub project](https://github.com/twbs/bootstrap/releases) for changelogs for each release version of Bootstrap. Release announcement posts on [the official Bootstrap blog](http://blog.getbootstrap.com) contain summaries of the most noteworthy changes made in each release.
 
-#### Step 3
 
-Next you need to add html indicators in all place you want to use i18n.(`_includes/sections/*.html` and `index.html`)
+## Creators
 
-Example:
+**Mark Otto**
 
-``` html
-<a class="navbar-brand" href="#page-top" id="i18_title"><span data-i18n="website.title">{{ site.title }}</span></a>
-```
+* <https://twitter.com/mdo>
+* <https://github.com/mdo>
 
-#### Step 4
+**Jacob Thornton**
 
-Next you need to initialise the i18next plugin(`index.html`):
+* <https://twitter.com/fat>
+* <https://github.com/fat>
 
-``` javascript
-$.i18n.init(
-    resGetPath: 'locales/__lng__.json',
-    load: 'unspecific',
-    fallbackLng: false,
-    lng: 'en'
-}, function (t)
-    $('#i18_title').i18n();
-});
-```
 
-### <a name="web-analytics"></a>Web analytics
+## Copyright and license
 
-I use [Baidu analytics](http://tongji.baidu.com/web/welcome/login), [Google analytics](https://www.google.com/analytics/) and [GrowingIO](https://www.growingio.com/) to do web analytics, you can choose either to realize it,just register a account and replace id in `_config.yml`.
-
-### <a name="comment"></a>Comment
-
-I use [Changyan](http://changyan.kuaizhan.com/) and [Disqus](https://disqus.com/) to realize comment.
-
-#### Changyan
-To configure Changyan, get the appid and conf in <http://changyan.kuaizhan.com/>. Then, in `_config.yml`, edit the changyan value to enable Changyan.
-
-#### Disqus
-To configure Disqus,you should set disqus_shortname and get public key and then, in `_config.yml`, edit the disqus value to enable Disqus.
-
-### <a name="share"></a>Share
-
-I use [bshare](http://www.bshare.cn/) to share my blog on other social network platform. You can register a count and get your share uuid.
-
-### <a name="search-engines"></a>Search engines
-
-I use javascript to realize blog search,you can double click `Ctrl` or click the icon at lower right corner of the page,the detail you can got to this repo: <https://github.com/androiddevelop/jekyll-search>.
-
-Just use it.
-
-![search](search.gif)
-
-### <a name="cname"></a>CNAME
-
-Replace your website domain in **CNAME** file.
-
-### <a name="put-in-a-jalpc-plug"></a>Put in a Jalpc Plug
-
-If you want to give credit to the Jalpc theme with a link to my personal website <http://www.jack003.com>, that'd be awesome. No worries if you don't.
-
-### <a name="enjoy"></a>Enjoy
-
-Hope you enjoy using Jalpc. If you encounter any issues, please feel free to let me know by creating an issue. I'd love to help.
-
-## <a name="upgrading-jalpc"></a>Upgrading Jalpc
-
-Jalpc is always being improved by its users, so sometimes one may need to upgrade.
-
-### <a name="ensure-theres-an-upstream-remote"></a>Ensure there's an upstream remote
-
-If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
-
-```
-git remote add upstream https://github.com/Jack614/jalpc_jekyll_theme.git
-```
-
-### <a name="pull-in-the-latest-changes"></a>Pull in the latest changes
-
-```
-git pull upstream gh-pages
-```
-
-There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
-
-## <a name="thanks-to-the-following"></a>Thanks to the following
-
-* [Jekyll](http://jekyllrb.com)
-* [Bootstrap](http://www.bootcss.com)
-* [jPages](http://luis-almeida.github.io/jPages)
-* [i18next](http://i18next.github.io/i18next)
-* [pixyll](https://github.com/johnotander)
-* [androiddevelop](https://github.com/androiddevelop)
-
-## <a name="contributing"></a>Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Code and documentation copyright 2011-2015 Twitter, Inc. Code released under [the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
