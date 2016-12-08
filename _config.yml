@@ -57,6 +57,12 @@ sections:
     tpl: 'links.html'
     css: 'contact'
 
+sections1:
+  - id: 'projects'
+    i18n: 'nav.project'
+    name: 'Project'
+    tpl: 'projects.html'
+    css: ''
 # localization
 languages:
   - locale: 'en'
