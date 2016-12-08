@@ -58,7 +58,7 @@ sections:
     css: 'contact'
 
 sections1:
-  - id: 'projects'
+  - id: 'projects2'
     i18n: 'nav.project'
     name: 'Project'
     tpl: 'projects.html'
