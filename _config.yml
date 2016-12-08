@@ -17,9 +17,8 @@ author:
   facebook_username: 'jiakunnj'
   github_username: 'JiaKunUp'
   head_img: 'static/img/landing/Mohammed.jpg'
-  desc: 'I am a Full Stack engineer with website development, automation Ops and writing scripts experience. Life is a continuous learning process, so work makes me more rigorous, travel makes my life more colorful. I can make lots of friends when I coding and travel.'
-
-# sections
+  desc: "I am a Software Engineer with Master's degree. I like to learn new stuff since to me life is a continuous learning process, so work makes me more rigorous. My career objective is to improve myself in every way I can and to have all the needs of a job that
+gives me pleasure."
 sections:
   - id: 'about-me'
     i18n: 'nav.about_me'
