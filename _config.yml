@@ -61,7 +61,7 @@ sections1:
   - id: 'projects2'
     i18n: 'nav.project'
     name: 'Project'
-    tpl: 'projects.html'
+    tpl: 'projects2.html'
     css: ''
 # localization
 languages:
