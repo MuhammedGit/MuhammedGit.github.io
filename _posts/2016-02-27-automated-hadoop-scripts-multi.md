@@ -20,7 +20,8 @@ This step needs to be do on both nodes.
 
 On Both nodes
 After that the bash code below needs to be pasted into an sh file and run (sh ./filename)
-```
+
+``` bash
 #!/bin/bash
 VERSION=hadoop-2.7.2
 apt-get install python-software-properties
@@ -66,7 +67,7 @@ wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/Multi-Node/c
 ```
 
 After these steps from master node run the code below
-```
+``` bash
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hduser@slave
 ```
 
