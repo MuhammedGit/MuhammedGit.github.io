@@ -13,6 +13,7 @@ This post describes how to set up a Hadoop environment in a single node.
 First thing needs to be done is to add hostname and host's IP adress into /etc/hosts file
 
 #For example 
+
 ``` sh
 cat /etc/hosts >> 192.168.1.25 hostname
 ```
