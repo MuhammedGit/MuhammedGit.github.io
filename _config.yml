@@ -84,5 +84,5 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    block:
+    span:
             line_numbers: true
