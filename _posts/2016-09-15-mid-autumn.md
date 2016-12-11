@@ -21,8 +21,8 @@ following k- mers of length 3: [“GAT”, “ATT”, “TTA”, “TAC”, “A
 many different genomic applications.
 
 Usage: 
-* ./kmers --filename big.fastq --kmersize 30 --topcount 25
-* ./kmers -f big.fastq -k 30 -t 25
+1. ./kmers --filename big.fastq --kmersize 30 --topcount 25
+2. ./kmers -f big.fastq -k 30 -t 25
 
 ``` cpp
 #include <fstream>
