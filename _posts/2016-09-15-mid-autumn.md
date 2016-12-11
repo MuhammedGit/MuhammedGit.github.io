@@ -10,6 +10,7 @@ icon: fa-bookmark-o
 ---
 
 A C++ Module to read given a FASTQ file, produce a list, sorted by frequency, of the 25 most frequent DNA k-mers (a substring of length k) of length 30 in that file, along with the number of times they appear.
+
 FASTQ is a text file format for storing biological sequences as a string of nucleotide codes (e.g., A C T G)
 along with quality information for each code, and is a common output of DNA sequencing machines. In most
 cases, the lines are in sets of 4, with the first being a sequence “ID”, the second being the sequence itself,
@@ -20,8 +21,8 @@ following k- mers of length 3: [“GAT”, “ATT”, “TTA”, “TAC”, “A
 many different genomic applications.
 
 Usage: 
-● ./kmers --filename big.fastq --kmersize 30 --topcount 25
-● ./kmers -f big.fastq -k 30 -t 25
+* ./kmers --filename big.fastq --kmersize 30 --topcount 25
+* ./kmers -f big.fastq -k 30 -t 25
 
 ``` cpp
 #include <fstream>
