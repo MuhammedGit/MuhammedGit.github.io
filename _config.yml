@@ -84,5 +84,3 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-        line_numbers: true
-        start_line: 1
