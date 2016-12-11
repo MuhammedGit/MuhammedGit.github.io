@@ -20,10 +20,13 @@ A “k- mer” is a substring of length k. For example, in the DNA sequence stri
 following k- mers of length 3: [“GAT”, “ATT”, “TTA”, “TAC”, “ACA”]. Counting k -mers is a common subtask in
 many different genomic applications.
 
+Source code and an executable file can be found in <>
 Usage: 
 1. ./kmers --filename big.fastq --kmersize 30 --topcount 25
 
-2. ./kmers -f big.fastq -k 30 -t 25
+To do modifications you will need to download
+1. The source code 
+2. Google sparse map API <https://github.com/sparsehash/sparsehash>
 
 ``` cpp
 #include <fstream>
