@@ -84,6 +84,4 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-  css_class: 'highlight'
-    span:
-            line_numbers: true
+      line_numbers: true
