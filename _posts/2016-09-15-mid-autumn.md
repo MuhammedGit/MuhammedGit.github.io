@@ -21,6 +21,7 @@ following k- mers of length 3: [“GAT”, “ATT”, “TTA”, “TAC”, “A
 many different genomic applications.
 
 Source code and an executable file can be found in <>
+
 Usage: 
 1. ./kmers --filename big.fastq --kmersize 30 --topcount 25
 
