@@ -9,62 +9,170 @@ tags: [ruby,rails]
 icon: icon-ruby
 ---
 
-This post describes how to set up a Hadoop environment in a single node.
-First thing needs to be done is to add hostname and host's IP adress into /etc/hosts file
+A website developed with JSF in OOP manner with MVC design and JDBC
+The website to be developed here will be about famous TV Series.
+
+This third part illustrates SeriesDbUtil class
+This class creates a connection to database through JDBC.
+
+``` 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 
-#For example 
-``` bash
-cat /etc/hosts >> 192.168.1.25 hostname
+public class SeriesDbUtil {
+
+	private static SeriesDbUtil instance;
+	private DataSource dataSource;
+	private String jndiName = "java:comp/env/jdbc/series";
+	
+	public static SeriesDbUtil getInstance() throws Exception {
+		if (instance== null){
+			instance= new SeriesDbUtil();
+		}
+		return instance;
+	}
+
+	public SeriesDbUtil() throws Exception{
+		dataSource = getDataSource();
+	}
+	
+	public DataSource getDataSource() throws Exception {
+		Context context= new InitialContext();
+		DataSource ds= (DataSource)context.lookup(jndiName);
+		return ds;
+	}
+
+	private Connection getConnection() throws Exception{
+		Connection connection = dataSource.getConnection();
+		return connection;
+	}
+
+	public List<Series> loadSeries() throws Exception {
+		List <Series> series = new ArrayList<>();
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		
+		try{
+			myConn= getConnection();
+			String sql="Select * from series";
+			myStmt = myConn.createStatement();
+			myRs=myStmt.executeQuery(sql);
+			while(myRs.next()){
+				String serie_genre= myRs.getString("serie_genre");
+				String serie_plot= myRs.getString("serie_plot");
+				String serie_poster= myRs.getString("serie_poster");
+				String serie_title = myRs.getString("serie_title").toLowerCase();
+				String serie_rating = myRs.getString("serie_rating");
+				String imdbID = myRs.getString("imdbID");
+				Series ser= new Series(imdbID,serie_title,serie_genre,serie_plot,serie_poster, serie_rating);
+				series.add(ser);
+				
+			}
+			
+			
+		}finally{
+			myConn.close();
+			myStmt.close();
+			myRs.close();
+		}
+		return series; 
+			
+	}
+	public void addSerie(Series serie) throws SQLException{
+		Connection myConn=null;
+		PreparedStatement myStmt=null;
+		try {
+			myConn= getConnection();
+			String sql="insert into series (imdbID, serie_title, serie_genre, serie_plot, serie_rating) VALUES (?, ?, ?, ?, ?)";
+			myStmt=myConn.prepareStatement(sql);
+			myStmt.setString(1,serie.getImdbID());
+			myStmt.setString(2,serie.getSerie_title());
+			myStmt.setString(3,serie.getSerie_genre());
+			myStmt.setString(4,serie.getSerie_plot());
+			myStmt.setString(5,serie.getSerie_rating());
+			myStmt.execute();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			myConn.close();
+			myStmt.close();
+			//myRs.close();
+		}
+	}
+	public Series getSerie(String se) throws Exception {
+		System.out.println(se);
+		Series ser = null;
+		String imdb_serie=se;
+		//List <Series> series = new ArrayList<>();
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		
+		try{
+			myConn= getConnection();
+			String sql="Select * from imdb where imdbID=?";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setString(1, imdb_serie);
+			myRs=myStmt.executeQuery(sql);
+			while(myRs.next()){
+				String imdb_genre = myRs.getString("imdb_genre").toLowerCase();
+				String imdb_plot = myRs.getString("imdb_plot");
+				System.out.println("genre" + imdb_genre);
+				System.out.println(imdb_plot);
+				ser= new Series(imdb_genre,imdb_plot);
+				//series.add(ser);
+			}
+			
+		}finally{
+			myConn.close();
+			myStmt.close();
+			myRs.close();
+		}
+		return ser; 
+			
+	}
+}
+
 ```
 
-After that the bash code below needs to be pasted into an sh file and run (sh ./filename)
-
+This class simply uses JNDI naming style to get connection to database which can be set up as:
+Considering the application is created with Eclipse then 
+Place the below code inside appName/WebContent/META-INF/context.xml file
 
 ```
-#!/bin/bash
-VERSION=hadoop-2.7.1
-apt-get install python-software-properties
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get install oracle-java8-installer
-apt-get install ssh
-#download hadoop, untar, put in /usr/local
-cd ~/Downloads
-wget http://ftp.itu.edu.tr/Mirror/Apache/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
-tar -xzf "$VERSION".tar.gz
-mv  $VERSION /usr/local
+<Context>
+	<Resource name="jdbc/series"
+			auth="Container" type="javax.sql.DataSource"
+			maxActive="20" maxIdle="5" maxWait="10000"
+			username="root" password="muho"
+			driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://localhost:3306/series"/>
 
-#create user and group
-addgroup hadoop
-adduser --ingroup hadoop hduser
-echo user created........................................
-# app folder; who uses this ????
-mkdir -p /app/hadoop/tmp
-chown hduser:hadoop /app/hadoop/tmp
-chmod 755 /app/hadoop/tmp
-
-#modify hadoop-env
-cd /usr/local/$VERSION/etc/hadoop
-echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> hadoop-env.sh
-echo "export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true" >> hadoop-env.sh
-
-#get configuration files
-rm core-site.xml
-wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/core-site.xml
-rm mapred-site.xml.template
-wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/mapred-site.xml.template
-rm hdfs-site.xml
-wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/hdfs-site.xml
-
-# chmod
-cd /usr/local
-ln -s $VERSION hadoop
-chown -R hduser:hadoop $VERSION
-echo .......ssh connection 
-su - hduser -c "echo | ssh-keygen -t rsa -P \"\""
-cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_keys
-su - hduser -c "ssh -o StrictHostKeyChecking=no localhost echo "# login once, to add to known hosts
+</Context>
 ```
 
-Thats all
+Also Place the below code inside appName/WebContent/WEB-INF/web.xml file
+
+```
+  <resource-ref>
+    <description>Series Datasource</description>
+    <res-ref-name>jdbc/series</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+```
+
+Note: The strings of "jdbc/series" tells the code where to look for the configurations of the database, so they are important.
