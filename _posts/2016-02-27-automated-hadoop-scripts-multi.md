@@ -10,13 +10,12 @@ icon: fa-code
 ---
 
 This post describes how to set up a Hadoop environment in a Multi-node.
-First thing needs to be done is to add hostname and host's IP adress into each others /etc/hosts files
+First thing needs to be done is to add both nodes' hostnames and IP adresses into each others' /etc/hosts file
 This step needs to be do on both nodes.
-
-
 #For example
 
 /etc/hosts
+
 192.168.1.25 master
 
 192.168.1.26 slave
