@@ -1,0 +1,15 @@
+- name: Blog
+  href: '/blog/'
+
+- name: jsf
+  href: '/jsf/'
+
+- name: Linux
+  href: '/linux/'
+
+- name: C++
+  href: '/cplusplus/'
+
+- name: bigdata
+  href: '/bigdata/'
+

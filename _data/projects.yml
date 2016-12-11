@@ -1,0 +1,21 @@
+- name: 'JSF/JDBC'
+  i18n: 'jsf'
+  Gurl: '/MuhammedGit/JSF'
+  url: '/jsf/'
+  img: 'static/img/landing/jsf.png'
+  desc: "A website is built through using Object Oriented programming manners and MVC design."
+
+- name: 'Big Data'
+  i18n: 'bigdata'
+  Gurl: '/MuhammedGit/MuhammedGithub'
+  url: '/bigdata/'
+  img: 'static/img/landing/bigdata.png'
+  desc: 'Automated scripts for setting up Hadoop Environment onto either Single or Multi-node cluster.'
+
+- name: 'C++ K-mers frequency counter'
+  i18n: 'cplusplus'
+  Gurl: '/MuhammedGit/cplusplus'
+  url: '/cplusplus/'
+  img: 'static/img/landing/cplusplus2.jpg'
+  desc: "C++ Module to read given a FASTQ file, produce a list, sorted by frequency, of the 25 most frequent DNA k-mers (a substring of length k)."
+

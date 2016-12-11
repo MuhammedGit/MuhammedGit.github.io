@@ -1,0 +1,41 @@
+- name:
+    detail: Graduation from Masters
+    i18n: college2
+  desc:
+    detail: At August 2016,I Received a Master's degree in Software Engineering from Atilim University and presented a thesis about a comparative study of Big Data stream processing frameworks including Apache Spark, Storm and Flink.
+    i18n: college2_des
+  date:
+    detail: Aug. 2016
+    i18n: college2_date
+  job:
+    detail: Student
+    i18n: college2_job
+  icon: fa-book
+
+- name:
+    detail: Internship in TUBITAK Software Technologies Research Institute / YTE
+    i18n: tubitak
+  desc:
+    detail: In TUBITAK, I was responsible as back-end website developer.
+    i18n: tubitak_des
+  date:
+    detail: Sep. 2016
+    i18n: tubitak_date
+  job:
+    detail: Back-end Developer
+    i18n: tubitak_job
+  icon: fa-database
+  
+- name:
+    detail: Graduation from Bachelor
+    i18n: college
+  desc:
+    detail: At July 2014,I got my Bachelor degree in Software Engineering from Jordan University of Science and Technology.
+    i18n: college_des
+  date:
+    detail: Jul. 2014
+    i18n: college_date
+  job:
+    detail: Student
+    i18n: college_job
+  icon: fa-book

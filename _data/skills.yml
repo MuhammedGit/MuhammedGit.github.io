@@ -1,0 +1,30 @@
+- name: 'Java, JavaScript, JSF, Junit'
+  percentage: 80
+  
+- name: C++
+  percentage: 65
+  
+- name: Linux/Shell
+  percentage: 75
+
+- name: HTML/CSS
+  percentage: 75
+
+- name: jQuery
+  percentage: 75
+
+- name: PHP
+  percentage: 70
+
+- name: MySQL
+  percentage: 70
+
+- name: NoSQL (Hbase, MongoDB)
+  percentage: 65
+  
+- name: 'Object Oriented Programming, Design Pattern'
+  percentage: 85
+  
+- name: 'RTOS, Distrubited Processing'
+  percentage: 70
+
