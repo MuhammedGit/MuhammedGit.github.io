@@ -27,7 +27,6 @@ Usage:
 To do modifications you will need to download
 
 1. The source code 
-
 2. Google sparse map API <https://github.com/sparsehash/sparsehash>
 
 ``` cpp
