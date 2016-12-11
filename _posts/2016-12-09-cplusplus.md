@@ -2,7 +2,7 @@
 layout: post
 title:  "A C++ Module to K-mers counting"
 date:   2016-12-15
-desc: "A C++ Module to read given a FASTQ file, produce a list, sorted by frequency, of the 25 most frequent DNA k-mers (a substring of length k) of length 30 in that file, along with the number of times they appear."
+desc: "C++ Module to read given a FASTQ file, produce a list, sorted by frequency, of the 25 most frequent DNA k-mers (a substring of length k) of length 30 in that file, along with the number of times they appear."
 keywords: "c++,k-mers, FASTQ, worcdount"
 categories: [cplusplus]
 tags: [c++,k-mers]
