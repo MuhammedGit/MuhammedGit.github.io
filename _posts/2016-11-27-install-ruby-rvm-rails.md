@@ -15,6 +15,7 @@ First thing needs to be done is to add hostname and host's IP adress into /etc/h
 ``` bash
 cat /etc/hosts >> 192.168.1.25 hostname
 ```
+
 After that the bash code below needs to be pasted into an sh file and run (sh ./filename)
 ``` bash
 #!/bin/bash
@@ -61,3 +62,5 @@ su - hduser -c "echo | ssh-keygen -t rsa -P \"\""
 cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_keys
 su - hduser -c "ssh -o StrictHostKeyChecking=no localhost echo "# login once, to add to known hosts
 ```
+
+Thats all
