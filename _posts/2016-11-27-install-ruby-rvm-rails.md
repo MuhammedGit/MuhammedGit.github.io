@@ -15,7 +15,7 @@ The website to be developed here will be about famous TV Series.
 This third part illustrates SeriesDbUtil class
 This class creates a connection to database through JDBC.
 
-``` java
+``` 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
