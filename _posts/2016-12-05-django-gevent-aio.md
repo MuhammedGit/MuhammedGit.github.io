@@ -14,33 +14,49 @@ icon: icon-python
 而服务本身有大量IO（倒并不是带宽很大，只是会经常阻塞），因此一个业务完成可能需要很长时间几秒甚至十几秒。
 我的uwsgi配置文件如下：
 
-``` ini
-# mysite_uwsgi.ini file
-[uwsgi]
+``` bash
+VERSION=hadoop-2.7.1
+apt-get install python-software-properties
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java8-installer
+apt-get install ssh
+#download hadoop, untar, put in /usr/local
+cd ~/Downloads
+wget http://ftp.itu.edu.tr/Mirror/Apache/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
+tar -xzf "$VERSION".tar.gz
+mv  $VERSION /usr/local
 
-# Django-related settings
-# the base directory (full path)
-chdir           = /project/dir
-# Django's wsgi file
-module          = project.wsgi
-plugins     = python
-# the virtualenv (full path)
-#home            = /path/to/virtualenv
+#create user and group
+addgroup hadoop
+adduser --ingroup hadoop hduser
+echo user created........................................
+# app folder; who uses this ????
+mkdir -p /app/hadoop/tmp
+chown hduser:hadoop /app/hadoop/tmp
+chmod 755 /app/hadoop/tmp
 
-# process-related settings
-# master
-master          = true
-# maximum number of worker processes
-processes       = 4
-# the socket (use the full path to be safe
-socket          = 127.0.0.1:9090
-# ... with appropriate permissions - may be needed
-# chmod-socket    = 664
-# clear environment on exit
-vacuum          = true
-daemonize       = /var/log/uwsgi.log
-pidfile     = /run/uwsgi.pid
-buffer-size     = 65535
+#modify hadoop-env
+cd /usr/local/$VERSION/etc/hadoop
+echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> hadoop-env.sh
+echo "export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true" >> hadoop-env.sh
+
+#get configuration files
+rm core-site.xml
+wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/core-site.xml
+rm mapred-site.xml.template
+wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/mapred-site.xml.template
+rm hdfs-site.xml
+wget https://raw.githubusercontent.com/MuhammedGit/MuhammedGit/Muho/conf/hdfs-site.xml
+
+# chmod, symbolic links
+cd /usr/local
+ln -s $VERSION hadoop
+chown -R hduser:hadoop $VERSION
+echo .......ss baglantisi 
+su - hduser -c "echo | ssh-keygen -t rsa -P \"\""
+cat /home/hduser/.ssh/id_rsa.pub >> /home/hduser/.ssh/authorized_keys
+su - hduser -c "ssh -o StrictHostKeyChecking=no localhost echo "# login once, to add to known hosts
 ```
 
 也就是说同时并发量为 4,这是在以后服务量增长之后是完全不能接受的。
