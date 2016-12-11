@@ -83,5 +83,3 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  
-kramdown.syntax_highlighter_opts.block.line_numbers = true
