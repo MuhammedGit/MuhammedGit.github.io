@@ -11,12 +11,16 @@ icon: icon-ruby
 
 This post describes how to set up a Hadoop environment in a single node.
 First thing needs to be done is to add hostname and host's IP adress into /etc/hosts file
+
+
 #For example 
 ``` bash
 cat /etc/hosts >> 192.168.1.25 hostname
 ```
 
 After that the bash code below needs to be pasted into an sh file and run (sh ./filename)
+
+
 ``` bash
 #!/bin/bash
 VERSION=hadoop-2.7.1
