@@ -17,9 +17,7 @@ This step needs to be do on both nodes.
 #For example
 
 /etc/hosts
-
 192.168.1.25 master
-
 192.168.1.26 slave
 
 On Both nodes
