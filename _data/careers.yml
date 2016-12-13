@@ -39,3 +39,17 @@
     detail: Student
     i18n: college_job
   icon: fa-book
+
+- name:
+    detail: Vocational School of Higher Education
+    i18n: college
+  desc:
+    detail: At September 2009,I got my associate degree in Business from Gazi University.
+    i18n: college_des
+  date:
+    detail: Sept. 2009
+    i18n: college_date
+  job:
+    detail: Student
+    i18n: college_job
+  icon: fa-book
