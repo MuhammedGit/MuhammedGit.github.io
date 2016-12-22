@@ -3,13 +3,17 @@
     i18n: college3
   desc:
     detail: At December 2016,I presented a paper and got it published in a journal. The paper is about several stream processing frameworks for Big Data.
-    i18n: college2_des
+    i18n: college3_des
   date:
     detail: Dec. 2016
-    i18n: college2_date
+    i18n: college3_date
   job:
     detail: Author
-    i18n: college2_job
+    i18n: college3_job
+  link:
+    text: Which can be found
+    i18n: college3_link
+    http: "http://revista.univem.edu.br/index.php/jadi/article/view/1914/491"
   icon: fa-book
 
 - name:
