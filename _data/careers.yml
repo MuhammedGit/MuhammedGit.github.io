@@ -1,4 +1,18 @@
 - name:
+    detail: Paper publishment
+    i18n: college3
+  desc:
+    detail: At December 2016,I presented a paper and got it published in a journal. The paper is about several stream processing frameworks for Big Data.
+    i18n: college2_des
+  date:
+    detail: Dec. 2016
+    i18n: college2_date
+  job:
+    detail: Author
+    i18n: college2_job
+  icon: fa-book
+
+- name:
     detail: Graduation from Masters
     i18n: college2
   desc:
