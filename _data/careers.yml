@@ -11,9 +11,10 @@
     detail: Author
     i18n: college3_job
   link:
-    text: Which can be found
+    text: The paper can be found
     i18n: college3_link
     http: "http://revista.univem.edu.br/index.php/jadi/article/view/1914/491"
+    atext: here
   icon: fa-book
 
 - name:
